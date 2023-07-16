@@ -2,6 +2,64 @@
 
 ### Discription
 This collection of MATLAB scripts intends to study the performance of state-constrained controllers utilizing control barrier functions in the context of adaptive cruise control.
+
+## Concept of Control Lyapunov Functions
+
+We consider a linear plant with parametric uncertainties of the form:
+
+$$\\begin{equation}
+\dot{x}_p(t) = A_p x_p(t) + B_p \Lambda (R(u(t))(t))
+\\end{equation}$$
+
+       
+A positive-definite continuous function $V(x,\hat{\theta})$ is a globally stabilizing CLF for \eqref{system_equation_2} if there exists the class $\mathcal{K}_{\infty}$ functions $\alpha_1$, $\alpha_2$,  $\alpha_3$ such that:
+
+\begin{equation}
+    \label{CLF_Condition_1}
+    \alpha_1 (\lVert x \rVert, \hat{\theta}) \leq V(x, \hat{\theta}) \leq \alpha_2 (\lVert x \rVert, \hat{\theta})
+\end{equation}
+
+
+\begin{equation}
+    \label{CLF_Condition_2}
+    \inf_{u \in U} \dot{V}(x,\theta, u) \leq - \alpha_3 (\lVert x \rVert, \hat{\theta})
+\end{equation}
+
+where $x_p(t) \in \mathbf{R}^{n}$ is a measurable state vector and $u(t) \in \mathbf{R}^{m}$ is a control input vector. The matrices $A_p \in \mathbf{R}^{n \times n}$  and $\Lambda \in \mathbf{R}^{m \times m}$ are unkown and $\Lambda$ has only diagonal positive entries. The control input is assumed to be magnitude limited by $\vert u_0 \vert$, which leads to the following closed set for the control input space
+
+$$\\begin{equation}
+\mathcal{U} = \begin{Bmatrix} u \in \mathbf{R}^{m} : - u_0 \geq u(t) \geq u_0 \end{Bmatrix}
+\\end{equation}$$
+
+The objective is to determine a $u(t)$ for \eqref{LinearPlantModel} such that the plant state $x_p(t)$ tracks a desired reference $ x_d(t)$ and that for any initial condition $x_0 := x(t_0) \in S$, it is ensured that the plant state vector $x_p(t)$ stays within the safe set $S \in \mathbf{R}^n$ i.e. the control input ensures that there is a CBF with $h(x,u) \geq 0$ for $\forall t \geq 0$.
+
+ A closed set $\mathcal{C} \in \mathbf{R}^n$, which we consider as a safe set, is defined in the following form:
+  
+  $$\\begin{equation}
+      \mathcal{C} = \begin{Bmatrix} x \in \mathbf{R}^n : h(x) \geq 0 \end{Bmatrix}
+  \\end{equation}$$
+  
+with $h: \mathbf{R}^n \times \mathbf{R}^p \to \mathbf{R}$ being a  continuously differentiable function, called  control barrier function (CBF).
+  
+<p align=center>
+<img src="https://github.com/JohannesAutenrieb/1D_MPC_CBF/blob/main/Images/CBF_Function_Plot.png" alt="CBF_Function_Plot" height=300px>
+</p>
+  
+The CBF can ensure for the presented control affine system that for any initial condition $x_0 := x(t_0) \in \mathcal{C}$, that $x(t)$ stays within $\mathcal{C}$ for any $t$, if there exists an extended class $\mathcal{K}$ functions $\alpha$ such that for all $x \in Int(\mathcal{C})$
+
+$$\\begin{equation}
+    \sup_{u \in U} [L_f B(x) + L_g B(x) u  + \alpha(h(x))] \geq 0
+\\end{equation}$$
+
+Where $\alpha(h(x)$ often chosen to be
+
+$$\\begin{equation}
+    \alpha(h(x)) = \gamma h(x)
+\\end{equation}$$
+
+with $\gamma$ being $\gamma > 0$.
+
+
 ## Concept of Control Barrier Functions
 
 We consider a linear plant with parametric uncertainties of the form:

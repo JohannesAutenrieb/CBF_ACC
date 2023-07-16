@@ -59,6 +59,40 @@ $$\\begin{equation}
 
 with $\gamma$ being $\gamma > 0$.
 
+To motivate safety for systems of this form, and hence
+control barrier functions, we begin by considering the famil-
+iar objective of stabilizing the system. Suppose we have the
+control objective of (asymptotically) stabilizing the nonlinear
+control system (1) to a point x∗ = 0, i.e., driving x(t) → 0.
+In a nonlinear context, this can be achieved—and, in fact,
+understood—by equivalently finding a feedback control law
+that drives a positive definite function, V : D ⊂ Rn → R≥0,
+to zero. That is, if
+∃ u = k(x) s.t.  ̇V (x, k(x)) ≤ −γ(V (x)), (2)
+where
+ ̇V (x, k(x)) = Lf V (x) + Lg V (x)k(x),
+then the system is stabilizable to V (x∗) = 0, i.e., x∗ = 0.
+Note that here γ : R≥0 → R≥0 is a class K function
+defined on the entire real line for simplicity, i.e., γ maps
+zero to zero, γ(0) = 0, and it is strictly monotonic: for
+all r1, r2 ∈ R≥0, r1 < r2 implies that γ(r1) < γ(r2).
+Thus, the process of stabilizing a nonlinear system can be
+understood as finding an input that creates a one-dimensional
+stable system given by the Lyapunov function:  ̇V ≤ −γ(V ),
+wherein the comparison lemma (see, e. g., [33]) implies that
+the full-order nonlinear system (1) is thus stable under the
+control law u = k(x).
+The above observations motivate the notion of a control
+Lyapunov function wherein a function V is shown to stabilize
+the system without the need to explicitly construct the
+feedback controller u = k(x). That is, as first observed
+by Sontag and Artstein [34], [35], [36], we only need a
+controller to exist that results in the desired inequality on
+ ̇V . Concretely, V is a control Lyapunov function (CLF) if it
+is positive definite and satisfies:
+inf
+u∈U [Lf V (x) + Lg V (x)u] ≤ −γ(V (x)), 
+
 
 ## Concept of Control Barrier Functions
 

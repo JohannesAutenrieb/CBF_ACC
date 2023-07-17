@@ -153,7 +153,9 @@ After each simulation run, a plot with results is given out. An example of such 
     with $T_h$ being the look-ahead time.
 \end{itemize}
 
-
+<p align=center>
+<img src="https://github.com/JohannesAutenrieb/CBF_ACC/blob/main/Images/snipping_ACC_Case.png" alt="snipping_ACC_Case" height=300px>
+</p>
 
 The dynamics of the system can be defined as follows:
 

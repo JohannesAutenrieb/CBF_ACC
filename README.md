@@ -140,7 +140,6 @@ We consider a case in which two vehicles, modeled as point masses, are moving in
 * **Safety Objective**: Ensure that the distance $D$ is not violating the following safety constraint:
 
 $$\\begin{equation}
-    \label{safety_constraint}
     D \geq T_h v
 \\end{equation}$$
 
@@ -153,7 +152,6 @@ with $T_h$ being the look-ahead time.
 The dynamics of the system can be defined as follows:
 
 $$\\begin{equation}
-    \label{dyanmics}
     \begin{bmatrix}
     \dot{x} \\
     \dot{v}\\

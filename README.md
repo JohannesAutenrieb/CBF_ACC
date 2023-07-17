@@ -94,21 +94,12 @@ with $\gamma$ being $\gamma > 0$.
 
 ### Pointwise  CLF-CBF-QP Controller
 
-By using a QP-based approach, it is possible to unify both CLF-based "performance objectives" and CBF-based "safety considerations". Using a quadratic programming formulation, the min-norm solution for $u$ can be found by solving:
-
-\begin{argmini*}
-{u \in \mathbb{R}^m}{ \frac{1}{2} u^T H u + F u}
-{}{}
-\addConstraint{ L_f V(x,\hat{\theta}) + L_g V(x,\hat{\theta})u + c_3 V(x,\hat{\theta}) - \delta \leq 0}
-\addConstraint{ L_f B(x,\hat{\psi}) + L_g B(x,\hat{\psi})u - \alpha (h(x,\hat{\psi})) \leq 0}
-\end{argmini*}
-
-Since a solution space for $u=k(X)$ exists, secondary performance objectives can be considered by using an optimization-based approach. Using a quadratic programming formulation, the min-norm solution for $u$ can be found by solving:
+By using a QP-based approach, it is possible to unify both CLF-based "performance objectives" and CBF-based "safety considerations". Using a quadratic programming formulation, the solution for $u$ can be found by solving:
 
 $$\\begin{align}
 &\min_{u \in \mathcal{U}}
 \begin{aligned}[t]
-  &\frac{1}{2} u^T H u + F u}
+  &\frac{1}{2} u^T H u + F u
 \end{aligned} \\
 &\text{s.t.} \notag \\
 & L_f V(x) + L_g V(x)u + c_3 V(x) - \delta \leq 0, \notag

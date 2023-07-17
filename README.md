@@ -139,6 +139,52 @@ After each simulation run, a plot with results is given out. An example of such 
 <img src="https://github.com/JohannesAutenrieb/1D_MPC_CBF/blob/main/Images/Example_Simulation_Results.png" alt="MISSION_GUI" height=1000px>
 </p>
 
+## Problem Formulation
+
+\begin{itemize}
+    \item Two vehicles are modeled as point masses moving in a straight line.
+    \item The following vehicle is equipped with an ACC and the lead vehicle drives with constant speed $v_0$.
+    \item \textbf{Control Objective}: Cruising at a given speed $v_d$ for the following vehicle.
+    \item \textbf{Safety Objective}: Ensure that the distance $D$ is not violating the following safety constraint:
+    \begin{equation}
+        \label{safety_constraint}
+        D \geq T_h v
+    \end{equation}
+    with $T_h$ being the look-ahead time.
+\end{itemize}
+
+
+
+The dynamics of the system can be defined as follows:
+
+\begin{equation}
+    \label{dyanmics}
+    \begin{bmatrix}
+    \dot{x} \\
+    \dot{v}\\
+    \dot{D} \\
+    \end{bmatrix} = 
+    \underbrace{
+    \begin{bmatrix}
+    v \\
+    - \frac{1}{m} F_r(v)\\
+    v_0 - v \\
+    \end{bmatrix}}_{f(x)}     +
+    \underbrace{
+    \begin{bmatrix}
+    0\\
+    \frac{1}{m}\\
+    0 \\
+    \end{bmatrix}}_{g(x)}
+    \underbrace{F_w}_{u}
+\end{equation}
+
+with $x$ being the position, $m$ the mass and $v$ the speed of the controlled vehicle. The control input $u$ of the ACC is defined as the wheel force $F_w$, while the aerodyanmic drag is given as $F_w$, which is defined as:
+
+\begin{equation}
+    F(v) = f_0 + f_1 v + f_2 v^2
+\end{equation}
+
 ## Dependencies
 
 

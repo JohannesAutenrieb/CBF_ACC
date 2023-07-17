@@ -102,7 +102,7 @@ $$\\begin{align}
   &\frac{1}{2} u^T H u + F u
 \end{aligned} \\
 &\text{s.t.} \notag \\
-& L_f V(x) + L_g V(x)u + c_3 V(x) - \delta \leq 0, \notag
+& L_f V(x) + L_g V(x)u + c_3 V(x) - \delta \leq 0, \notag\\
 & L_f h(x) + L_g h(x)u - \alpha (h(x)) \leq 0), \notag
 \\end{align}$$
 

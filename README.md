@@ -3,6 +3,50 @@
 ### Discription
 This collection of MATLAB scripts intends to study the performance of state-constrained controllers utilizing control barrier functions in the context of adaptive cruise control.
 
+
+## Problem Formulation
+We consider a case in which two vehicles, modeled as point masses, are moving in a straight line. The following vehicle is equipped with an ACC and the lead vehicle drives with constant speed $v_0$.
+
+* **Control Objective**: Cruising at a given speed $v_d$ for the following vehicle.
+* **Safety Objective**: Ensure that the distance $D$ is not violating the following safety constraint:
+
+$$\\begin{equation}
+    D \geq T_h v
+\\end{equation}$$
+
+with $T_h$ being the look-ahead time.
+
+<p align=center>
+<img src="https://github.com/JohannesAutenrieb/CBF_ACC/blob/main/Images/snipping_ACC_Case.png" alt="snipping_ACC_Case" height=300px>
+</p>
+
+The dynamics of the system can be defined as follows:
+
+$$\\begin{equation}
+    \begin{bmatrix}
+    \dot{x} \\
+    \dot{v}\\
+    \dot{D} \\
+    \end{bmatrix} = 
+    \begin{bmatrix}
+    v \\
+    - \frac{1}{m} F_r(v)\\
+    v_0 - v \\
+    \end{bmatrix}     +
+    \begin{bmatrix}
+    0\\
+    \frac{1}{m}\\
+    0 \\
+    \end{bmatrix} F_w
+\\end{equation}$$
+
+with $x$ being the position, $m$ the mass and $v$ the speed of the controlled vehicle. The control input $u$ of the ACC is defined as the wheel force $F_w$, while the aerodyanmic drag is given as $F_w$, which is defined as:
+
+$$\\begin{equation}
+    F(v) = f_0 + f_1 v + f_2 v^2
+\\end{equation}$$
+
+
 ## Concept of Control Lyapunov Functions
 
 We consider a control affine plant of the form:
@@ -107,48 +151,6 @@ $$\\begin{align}
 \\end{align}$$
 
 with $\delta$ being a slack or relaxation variable that ensures a feasible QP  by relaxing the condition on stability to guarantee safety.
-
-## Problem Formulation
-We consider a case in which two vehicles, modeled as point masses, are moving in a straight line. The following vehicle is equipped with an ACC and the lead vehicle drives with constant speed $v_0$.
-
-* **Control Objective**: Cruising at a given speed $v_d$ for the following vehicle.
-* **Safety Objective**: Ensure that the distance $D$ is not violating the following safety constraint:
-
-$$\\begin{equation}
-    D \geq T_h v
-\\end{equation}$$
-
-with $T_h$ being the look-ahead time.
-
-<p align=center>
-<img src="https://github.com/JohannesAutenrieb/CBF_ACC/blob/main/Images/snipping_ACC_Case.png" alt="snipping_ACC_Case" height=300px>
-</p>
-
-The dynamics of the system can be defined as follows:
-
-$$\\begin{equation}
-    \begin{bmatrix}
-    \dot{x} \\
-    \dot{v}\\
-    \dot{D} \\
-    \end{bmatrix} = 
-    \begin{bmatrix}
-    v \\
-    - \frac{1}{m} F_r(v)\\
-    v_0 - v \\
-    \end{bmatrix}     +
-    \begin{bmatrix}
-    0\\
-    \frac{1}{m}\\
-    0 \\
-    \end{bmatrix} F_w
-\\end{equation}$$
-
-with $x$ being the position, $m$ the mass and $v$ the speed of the controlled vehicle. The control input $u$ of the ACC is defined as the wheel force $F_w$, while the aerodyanmic drag is given as $F_w$, which is defined as:
-
-$$\\begin{equation}
-    F(v) = f_0 + f_1 v + f_2 v^2
-\\end{equation}$$
 
 ### Simulation Study
 

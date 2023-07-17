@@ -17,7 +17,7 @@ For which we define the control objective of globally stabilizing the considered
 <img src="https://github.com/JohannesAutenrieb/CBF_ACC/blob/main/Images/CLF_Visual.png" alt="CBF_Function_Plot" height=300px>
 </p>
 
-The system is globally stabilizable, if there exists the class $\mathcal{K}_{\infty}$ functions $\alpha_1$, $\alpha_2$,  $\alpha_3$ such that
+The system is globally stabilizable if there exists the class $\mathcal{K}_{\infty}$ functions $\alpha_1$, $\alpha_2$,  $\alpha_3$ such that
 
 $$\\begin{equation}
     \alpha_1 (\lVert x \rVert) \leq V(x) \leq \alpha_2 (\lVert x \rVert)
@@ -34,23 +34,11 @@ $$\\begin{equation}
     \alpha_3(\lVert x \rVert) = \lambda V(x)
 \\end{equation}$$
 
-with $\lambda$ being $\lambda > 0$. Since any controller that respects the above requirements can ensure stability, there is no need to explicitly construct the feedback controller $k(X) = \begin{Bmatrix} u \in \mathbf{R}^{m} : \dot{V}(x, u) = [L_f V (x) + L_g V (x)u] ≤ −\lambda V (x) \end{Bmatrix}$. One can define the following positive definite control Lyapunov function (CLF) $V(x,u), which satisfies:
+with $\lambda$ being $\lambda > 0$. Since any controller that respects the above requirements can ensure stability, there is no need to explicitly construct the feedback controller $k(X) = {u \in \mathbf{R}^{m} : \dot{V}(x, u) = [L_f V (x) + L_g V (x)u] ≤ −\lambda V (x) }$. One can define the following positive definite control Lyapunov function (CLF) $V(x,u), which satisfies:
 
 $$\\begin{equation}
     \inf_{u \in U} L_f V (x) + L_g V (x)u  \leq - \alpha_3 (\lVert x \rVert)
-\\end{equation}$$
-
-Since a solution space for $u=k(X)$ exists, secondary performance objectives can be considered by using an optimization-based approach. Using a quadratic programming formulation, the min-norm solution for $u$ can be found by solving:
-
-$$\\begin{align}
-&\min_{u \in \mathcal{U}}
-\begin{aligned}[t]
-  &\|u - u_d\|_2
-\end{aligned} \\
-&\text{s.t.} \notag \\
-& L_f V(x,\hat{\theta}) + L_g V(x,\hat{\theta}) u \leq - c_3 V(x,\hat{\theta}), \notag
-\\end{align}$$
-  
+\\end{equation}$$  
 
 ## Concept of Control Barrier Functions
 
@@ -94,7 +82,18 @@ $$\\begin{equation}
 
 with $\gamma$ being $\gamma > 0$.
 
-### Pointwise Controller and CBF-QP Safety Filter
+### Pointwise  CLF-CBF-QP Controller
+
+Since a solution space for $u=k(X)$ exists, secondary performance objectives can be considered by using an optimization-based approach. Using a quadratic programming formulation, the min-norm solution for $u$ can be found by solving:
+
+$$\\begin{align}
+&\min_{u \in \mathcal{U}}
+\begin{aligned}[t]
+  &\|u - u_d\|_2
+\end{aligned} \\
+&\text{s.t.} \notag \\
+& L_f V(x,\hat{\theta}) + L_g V(x,\hat{\theta}) u \leq - c_3 V(x,\hat{\theta}), \notag
+\\end{align}$$
 
 A linear controller of the following form is defined:
 

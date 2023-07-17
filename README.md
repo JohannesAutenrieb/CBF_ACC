@@ -177,11 +177,6 @@ Further, the following MATLAB toolboxes are needed:
 The contents of this repository are covered under the [MIT License](LICENSE).
 
 
-## License
-
-The contents of this repository are covered under the [MIT License](LICENSE).
-
-
 ## References
 
 We kindly acknowledge the following papers, which have been the foundation of the here presented scripts:

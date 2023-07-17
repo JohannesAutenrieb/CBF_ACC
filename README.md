@@ -180,7 +180,7 @@ $$\\begin{equation}
 After each simulation run, a plot with results is given out. An example of such a plot is given here:
 
 <p align=center>
-<img src="https://github.com/JohannesAutenrieb/CBF_ACC/blob/main/Images/Example_results_acc.png" alt="Example_results_acc" height=1000px>
+<img src="https://github.com/JohannesAutenrieb/CBF_ACC/blob/main/Images/Example_results_acc.png" alt="Example_results_acc">
 </p>
 
 ## Dependencies

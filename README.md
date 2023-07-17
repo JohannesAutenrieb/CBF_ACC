@@ -3,6 +3,50 @@
 ### Discription
 This collection of MATLAB scripts intends to study the performance of state-constrained controllers utilizing control barrier functions in the context of adaptive cruise control.
 
+
+## Problem Formulation
+We consider a case in which two vehicles, modeled as point masses, are moving in a straight line. The following vehicle is equipped with an ACC and the lead vehicle drives with constant speed $v_0$.
+
+* **Control Objective**: Cruising at a given speed $v_d$ for the following vehicle.
+* **Safety Objective**: Ensure that the distance $D$ is not violating the following safety constraint:
+
+$$\\begin{equation}
+    D \geq T_h v
+\\end{equation}$$
+
+with $T_h$ being the look-ahead time.
+
+<p align=center>
+<img src="https://github.com/JohannesAutenrieb/CBF_ACC/blob/main/Images/snipping_ACC_Case.png" alt="snipping_ACC_Case" height=300px>
+</p>
+
+The dynamics of the system can be defined as follows:
+
+$$\\begin{equation}
+    \begin{bmatrix}
+    \dot{x} \\
+    \dot{v}\\
+    \dot{D} \\
+    \end{bmatrix} = 
+    \begin{bmatrix}
+    v \\
+    - \frac{1}{m} F_r(v)\\
+    v_0 - v \\
+    \end{bmatrix}     +
+    \begin{bmatrix}
+    0\\
+    \frac{1}{m}\\
+    0 \\
+    \end{bmatrix} F_w
+\\end{equation}$$
+
+with $x$ being the position, $m$ the mass and $v$ the speed of the controlled vehicle. The control input $u$ of the ACC is defined as the wheel force $F_w$, while the aerodyanmic drag is given as $F_w$, which is defined as:
+
+$$\\begin{equation}
+    F(v) = f_0 + f_1 v + f_2 v^2
+\\end{equation}$$
+
+
 ## Concept of Control Lyapunov Functions
 
 We consider a control affine plant of the form:
@@ -46,7 +90,7 @@ $$\\begin{equation}
 k(x) = \begin{Bmatrix} u \in \mathbf{R}^{m} : \dot{V}(x, u) = [L_f V (x) + L_g V (x)u] ≤ −\lambda V (x) \end{Bmatrix}
 \\end{equation}$$
 
-One can define the following positive definite control Lyapunov function (CLF) $V(x,u)$, which satisfies:
+One can define the following positive definite control Lyapunov function (CLF) $V(x,u)$:
 
 $$\\begin{equation}
     \inf_{u \in U} L_f V (x) + L_g V (x)u  \leq - \alpha_3 (\lVert x \rVert)
@@ -103,52 +147,10 @@ $$\\begin{align}
 \end{aligned} \\
 &\text{s.t.} \notag \\
 & L_f V(x) + L_g V(x)u + c_3 V(x) - \delta \leq 0, \notag\\
-& L_f h(x) + L_g h(x)u - \alpha (h(x)) \leq 0), \notag
+& L_f h(x) + L_g h(x)u - \alpha (h(x)) \leq 0, \notag
 \\end{align}$$
 
 with $\delta$ being a slack or relaxation variable that ensures a feasible QP  by relaxing the condition on stability to guarantee safety.
-
-## Problem Formulation
-We consider a case in which two vehicles, modeled as point masses, are moving in a straight line. The following vehicle is equipped with an ACC and the lead vehicle drives with constant speed $v_0$.
-
-* **Control Objective**: Cruising at a given speed $v_d$ for the following vehicle.
-* **Safety Objective**: Ensure that the distance $D$ is not violating the following safety constraint:
-
-$$\\begin{equation}
-    D \geq T_h v
-\\end{equation}$$
-
-with $T_h$ being the look-ahead time.
-
-<p align=center>
-<img src="https://github.com/JohannesAutenrieb/CBF_ACC/blob/main/Images/snipping_ACC_Case.png" alt="snipping_ACC_Case" height=300px>
-</p>
-
-The dynamics of the system can be defined as follows:
-
-$$\\begin{equation}
-    \begin{bmatrix}
-    \dot{x} \\
-    \dot{v}\\
-    \dot{D} \\
-    \end{bmatrix} = 
-    \begin{bmatrix}
-    v \\
-    - \frac{1}{m} F_r(v)\\
-    v_0 - v \\
-    \end{bmatrix}     +
-    \begin{bmatrix}
-    0\\
-    \frac{1}{m}\\
-    0 \\
-    \end{bmatrix} F_w
-\\end{equation}$$
-
-with $x$ being the position, $m$ the mass and $v$ the speed of the controlled vehicle. The control input $u$ of the ACC is defined as the wheel force $F_w$, while the aerodyanmic drag is given as $F_w$, which is defined as:
-
-$$\\begin{equation}
-    F(v) = f_0 + f_1 v + f_2 v^2
-\\end{equation}$$
 
 ### Simulation Study
 
@@ -162,19 +164,13 @@ After each simulation run, a plot with results is given out. An example of such 
 
 
 The scripts use external libraries, which need to be installed.
-* YAMLIP
-* Export_fig
+* [Export_fig](https://github.com/altmany/export_fig)
 
 
 Further, the following MATLAB toolboxes are needed:
-* Optimization Toolbox
+* [Optimization Toolbox](https://www.mathworks.com/products/optimization.html)
 
 **The software was tested with MATLAB 2020b under Windows 11 Home.** 
-
-## License
-
-The contents of this repository are covered under the [MIT License](LICENSE).
-
 
 ## License
 

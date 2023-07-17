@@ -34,7 +34,13 @@ $$\\begin{equation}
     \alpha_3(\lVert x \rVert) = \lambda V(x)
 \\end{equation}$$
 
-with $\lambda$ being $\lambda > 0$. Since any controller that respects the above requirements can ensure stability, there is no need to explicitly construct the feedback controller $k(X) = {u \in \mathbf{R}^{m} : \dot{V}(x, u) = [L_f V (x) + L_g V (x)u] ≤ −\lambda V (x) }$. One can define the following positive definite control Lyapunov function (CLF) $V(x,u), which satisfies:
+with $\lambda$ being $\lambda > 0$. Since any controller that respects the above requirements can ensure stability, there is no need to explicitly construct the feedback controller 
+
+$$\\begin{equation}
+k(X) = \begin{Bmatrix} u \in \mathbf{R}^{m} : \dot{V}(x, u) = [L_f V (x) + L_g V (x)u] ≤ −\lambda V (x) \end{Bmatrix}$
+\\end{equation}$$
+
+One can define the following positive definite control Lyapunov function (CLF) $V(x,u), which satisfies:
 
 $$\\begin{equation}
     \inf_{u \in U} L_f V (x) + L_g V (x)u  \leq - \alpha_3 (\lVert x \rVert)

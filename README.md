@@ -66,8 +66,6 @@ $$\\begin{equation}
 \mathcal{U} = \begin{Bmatrix} u \in \mathbf{R}^{m} : - u_0 \geq u(t) \geq u_0 \end{Bmatrix}
 \\end{equation}$$
 
-The objective is to determine a $u(t)$ for \eqref{LinearPlantModel} such that the plant state $x_p(t)$ tracks a desired reference $ x_d(t)$ and that for any initial condition $x_0 := x(t_0) \in S$, it is ensured that the plant state vector $x_p(t)$ stays within the safe set $S \in \mathbf{R}^n$ i.e. the control input ensures that there is a CBF with $h(x,u) \geq 0$ for $\forall t \geq 0$.
-
  A closed set $\mathcal{C} \in \mathbf{R}^n$, which we consider as a safe set, is defined in the following form:
   
   $$\\begin{equation}

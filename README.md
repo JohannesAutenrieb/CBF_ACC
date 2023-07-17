@@ -92,7 +92,7 @@ $$\\begin{equation}
 
 with $\gamma$ being $\gamma > 0$.
 
-### Pointwise  CLF-CBF-QP Controller
+## Pointwise  CLF-CBF-QP Controller
 
 By using a QP-based approach, it is possible to unify both CLF-based "performance objectives" and CBF-based "safety considerations". Using a quadratic programming formulation, the solution for $u$ can be found by solving:
 

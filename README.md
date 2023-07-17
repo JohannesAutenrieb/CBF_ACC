@@ -14,7 +14,7 @@ $$\\begin{equation}
 For which we define the control objective of globally stabilizing the considered system to a point $x^∗ = 0$, and hence imposing $x(t) \rightarrow 0$.  This can be achieved by finding a feedback control law $k(x)$ that drives a positive-definite continuous function $V : D \in \mathbf{R}^{m} \rightarrow R \geq 0$. 
 
 <p align=center>
-<img src="https://github.com/JohannesAutenrieb/1D_MPC_CBF/blob/main/Images/CBF_Function_Plot.png" alt="CBF_Function_Plot" height=300px>
+<img src="https://github.com/JohannesAutenrieb/CBF_ACC/blob/main/Images/CLF_Visual.png" alt="CBF_Function_Plot" height=300px>
 </p>
 
 The system is globally stabilizable, if there exists the class $\mathcal{K}_{\infty}$ functions $\alpha_1$, $\alpha_2$,  $\alpha_3$ such that
@@ -77,7 +77,7 @@ The objective is to determine a $u(t)$ for \eqref{LinearPlantModel} such that th
 with $h: \mathbf{R}^n \times \mathbf{R}^p \to \mathbf{R}$ being a  continuously differentiable function, called  control barrier function (CBF).
   
 <p align=center>
-<img src="https://github.com/JohannesAutenrieb/1D_MPC_CBF/blob/main/Images/CBF_Function_Plot.png" alt="CBF_Function_Plot" height=300px>
+<img src="https://github.com/JohannesAutenrieb/CBF_ACC/blob/main/Images/CBF_Visual.png" alt="CBF_Function_Plot" height=300px>
 </p>
   
 The CBF can ensure for the presented control affine system that for any initial condition $x_0 := x(t_0) \in \mathcal{C}$, that $x(t)$ stays within $\mathcal{C}$ for any $t$, if there exists an extended class $\mathcal{K}$ functions $\alpha$ such that for all $x \in Int(\mathcal{C})$

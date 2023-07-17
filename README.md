@@ -162,12 +162,11 @@ After each simulation run, a plot with results is given out. An example of such 
 
 
 The scripts use external libraries, which need to be installed.
-* YAMLIP
-* Export_fig
+* [Export_fig](https://github.com/altmany/export_fig)
 
 
 Further, the following MATLAB toolboxes are needed:
-* Optimization Toolbox
+* [Optimization Toolbox](https://www.mathworks.com/products/optimization.html)
 
 **The software was tested with MATLAB 2020b under Windows 11 Home.** 
 

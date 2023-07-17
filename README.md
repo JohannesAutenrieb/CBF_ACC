@@ -157,22 +157,19 @@ $$\\begin{equation}
     \dot{v}\\
     \dot{D} \\
     \end{bmatrix} = 
-    \underbrace{
     \begin{bmatrix}
     v \\
     - \frac{1}{m} F_r(v)\\
     v_0 - v \\
-    \end{bmatrix}}_{f(x)}     +
-    \underbrace{
+    \end{bmatrix}     +
     \begin{bmatrix}
     0\\
     \frac{1}{m}\\
     0 \\
-    \end{bmatrix}}_{g(x)}
-    \underbrace{F_w}_{u}
+    \end{bmatrix} F_w
 \\end{equation}$$
 
-with $x$ being the position, $m$ the mass and $v$ the speed of the controlled vehicle. The control input $u$ of the ACC is defined as the wheel force $F_w$, while the aerodyanmic drag is given as $F_w$, which is defined as:
+with $x$ being the position and $F_w = u}$, $m$ the mass and $v$ the speed of the controlled vehicle. The control input $u$ of the ACC is defined as the wheel force $F_w$, while the aerodyanmic drag is given as $F_w$, which is defined as:
 
 $$\\begin{equation}
     F(v) = f_0 + f_1 v + f_2 v^2

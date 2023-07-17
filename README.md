@@ -11,6 +11,12 @@ $$\\begin{equation}
 \dot{x}(t) = f(x(t)) + g(x) (u(t))
 \\end{equation}$$
 
+where $x(t) \in \mathbf{R}^{n}$ is a measurable state vector and $u(t) \in \mathbf{R}^{m}$ is a control input vector. The control input is assumed to be magnitude limited by $\vert u_0 \vert$, which leads to the following closed set for the control input space
+
+$$\\begin{equation}
+\mathcal{U} = \begin{Bmatrix} u \in \mathbf{R}^{m} : - u_0 \geq u(t) \geq u_0 \end{Bmatrix}
+\\end{equation}$$
+
 For which we define the control objective of globally stabilizing the considered system to a point $x^∗ = 0$, and hence imposing $x(t) \rightarrow 0$.  This can be achieved by finding a feedback control law $k(x)$ that drives a positive-definite continuous function $V : D \in \mathbf{R}^{m} \rightarrow R \geq 0$. 
 
 <p align=center>
@@ -37,7 +43,7 @@ $$\\begin{equation}
 with $\lambda$ being $\lambda > 0$. Since any controller that respects the above requirements can ensure stability, there is no need to explicitly construct the feedback controller 
 
 $$\\begin{equation}
-k(X) = \begin{Bmatrix} u \in \mathbf{R}^{m} : \dot{V}(x, u) = [L_f V (x) + L_g V (x)u] ≤ −\lambda V (x) \end{Bmatrix}$
+k(x) = \begin{Bmatrix} u \in \mathbf{R}^{m} : \dot{V}(x, u) = [L_f V (x) + L_g V (x)u] ≤ −\lambda V (x) \end{Bmatrix}$
 \\end{equation}$$
 
 One can define the following positive definite control Lyapunov function (CLF) $V(x,u), which satisfies:
@@ -48,13 +54,13 @@ $$\\begin{equation}
 
 ## Concept of Control Barrier Functions
 
-We consider a linear plant with parametric uncertainties of the form:
+We consider again a control affine plant of the form:
 
 $$\\begin{equation}
-\dot{x}_p(t) = A_p x_p(t) + B_p \Lambda (R(u(t))(t))
+\dot{x}(t) = f(x(t)) + g(x) (u(t))
 \\end{equation}$$
 
-where $x_p(t) \in \mathbf{R}^{n}$ is a measurable state vector and $u(t) \in \mathbf{R}^{m}$ is a control input vector. The matrices $A_p \in \mathbf{R}^{n \times n}$  and $\Lambda \in \mathbf{R}^{m \times m}$ are unkown and $\Lambda$ has only diagonal positive entries. The control input is assumed to be magnitude limited by $\vert u_0 \vert$, which leads to the following closed set for the control input space
+where $x(t) \in \mathbf{R}^{n}$ is a measurable state vector and $u(t) \in \mathbf{R}^{m}$ is a control input vector. The control input is assumed to be magnitude limited by $\vert u_0 \vert$, which leads to the following closed set for the control input space
 
 $$\\begin{equation}
 \mathcal{U} = \begin{Bmatrix} u \in \mathbf{R}^{m} : - u_0 \geq u(t) \geq u_0 \end{Bmatrix}

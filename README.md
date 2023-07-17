@@ -94,7 +94,7 @@ with $\gamma$ being $\gamma > 0$.
 
 ### Pointwise  CLF-CBF-QP Controller
 
-By using a QP-based approach it is possible to unify both, aCLF-based "performance objectives" and aCBF-based "safety considerations".Using a RCBF-methodology, a combined controller could have the following form:
+By using a QP-based approach, it is possible to unify both CLF-based "performance objectives" and CBF-based "safety considerations". Using a quadratic programming formulation, the min-norm solution for $u$ can be found by solving:
 
 \begin{argmini*}
 {u \in \mathbb{R}^m}{ \frac{1}{2} u^T H u + F u}
@@ -108,28 +108,14 @@ Since a solution space for $u=k(X)$ exists, secondary performance objectives can
 $$\\begin{align}
 &\min_{u \in \mathcal{U}}
 \begin{aligned}[t]
-  &\|u - u_d\|_2
+  &\frac{1}{2} u^T H u + F u}
 \end{aligned} \\
 &\text{s.t.} \notag \\
-& L_f V(x,\hat{\theta}) + L_g V(x,\hat{\theta}) u \leq - c_3 V(x,\hat{\theta}), \notag
+& L_f V(x) + L_g V(x)u + c_3 V(x) - \delta \leq 0, \notag
+& L_f h(x) + L_g h(x)u - \alpha (h(x)) \leq 0), \notag
 \\end{align}$$
 
-A linear controller of the following form is defined:
-
-$$\\begin{align}
-u_d = K_1 x + K_2 x_d
-\\end{align}$$
-
-The linear controller is tuned regarding the desired control performance but cannot generate safe commands by itself. Therefore the following CLF-QP safety filter is used to adapt $u_d$ such that $x(t)$ stays within $\mathcal{C}$ for any $t$.
-
-$$\\begin{align}
-&\min_{u \in \mathcal{U}}
-\begin{aligned}[t]
-  &\|u - u_d\|_2
-\end{aligned} \\
-&\text{s.t.} \notag \\
-& L_f h(x) + L_g h(x)u - \gamma h(x) \leq 0, \notag
-\\end{align}$$
+with $\delta$ being a slack or relaxation variable that ensures a feasible QP  by relaxing the condition on stability to guarantee safety.
 
 ## Problem Formulation
 We consider a case in which two vehicles, modeled as point masses, are moving in a straight line. The following vehicle is equipped with an ACC and the lead vehicle drives with constant speed $v_0$.

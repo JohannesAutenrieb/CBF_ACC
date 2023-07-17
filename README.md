@@ -14,13 +14,11 @@ $$\\begin{equation}
 For which we define the control objective of globally stabilizing the considered system to a point $x^∗ = 0$, and hence imposing $x(t) \rightarrow 0$.  This can be achieved by finding a feedback control law $k(x)$ that drives a positive-definite continuous function $V : D \in \mathbf{R}^{m} \rightarrow R \geq 0$. The system globally stabilizable, if there exists the class $\mathcal{K}_{\infty}$ functions $\alpha_1$, $\alpha_2$,  $\alpha_3$ such that
 
 $$\\begin{equation}
-    \label{CLF_Condition_1}
     \alpha_1 (\lVert x \rVert) \leq V(x) \leq \alpha_2 (\lVert x \rVert)
 \\end{equation}$$
 
 
 $$\\begin{equation}
-    \label{CLF_Condition_2}
     \inf_{u \in U} \dot{V}(x, u) \leq - \alpha_3 (\lVert x \rVert)
 \\end{equation}$$
 

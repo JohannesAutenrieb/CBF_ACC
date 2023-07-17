@@ -43,7 +43,7 @@ $$\\begin{equation}
 with $\lambda$ being $\lambda > 0$. Since any controller that respects the above requirements can ensure stability, there is no need to explicitly construct the feedback controller 
 
 $$\\begin{equation}
-k(x) = \begin{Bmatrix} u \in \mathbf{R}^{m} : \dot{V}(x, u) = [L_f V (x) + L_g V (x)u] ≤ −\lambda V (x) \end{Bmatrix}$
+k(x) = \begin{Bmatrix} u \in \mathbf{R}^{m} : \dot{V}(x, u) = [L_f V (x) + L_g V (x)u] ≤ −\lambda V (x) \end{Bmatrix}
 \\end{equation}$$
 
 One can define the following positive definite control Lyapunov function (CLF) $V(x,u)$, which satisfies:

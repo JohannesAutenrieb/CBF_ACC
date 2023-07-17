@@ -46,7 +46,7 @@ $$\\begin{equation}
 k(x) = \begin{Bmatrix} u \in \mathbf{R}^{m} : \dot{V}(x, u) = [L_f V (x) + L_g V (x)u] ≤ −\lambda V (x) \end{Bmatrix}
 \\end{equation}$$
 
-One can define the following positive definite control Lyapunov function (CLF) $V(x,u)$, which satisfies:
+One can define the following positive definite control Lyapunov function (CLF) $V(x,u)$:
 
 $$\\begin{equation}
     \inf_{u \in U} L_f V (x) + L_g V (x)u  \leq - \alpha_3 (\lVert x \rVert)

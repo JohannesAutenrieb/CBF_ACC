@@ -103,7 +103,7 @@ $$\\begin{align}
 \end{aligned} \\
 &\text{s.t.} \notag \\
 & L_f V(x) + L_g V(x)u + c_3 V(x) - \delta \leq 0, \notag\\
-& L_f h(x) + L_g h(x)u - \alpha (h(x)) \leq 0), \notag
+& L_f h(x) + L_g h(x)u - \alpha (h(x)) \leq 0, \notag
 \\end{align}$$
 
 with $\delta$ being a slack or relaxation variable that ensures a feasible QP  by relaxing the condition on stability to guarantee safety.
